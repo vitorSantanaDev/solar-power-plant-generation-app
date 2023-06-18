@@ -29,7 +29,10 @@ Siga os passos abaixo:
 
 ```bash
 # Abra um terminal e copie este repositório com o comando
-$ cd caminho_onde_você_salvou_essa_copia_do_projeto
+$ git clone https://github.com/vitorSantanaDev/solar-power-plant-generation-app.git
+
+# Entre na pasta com
+$ cd solar-power-plant-generation-app
 
 # Instale as dependências
 $ yarn install
@@ -45,7 +48,9 @@ $ yarn test
 
 # Gere um apk para instalação no android
 $ yarn build:android
+
 $ Encontre o apk gerado em /android/app/build/outputs/apk/release
+
 $ O nome do arquivo vai está assim -> 'app-release.apk'
 ```
 
@@ -62,6 +67,8 @@ Logo Após o título da tela exite uma lista de filtros que podem ser usados par
 Clicando no botão de "VER DETALHES" do card selecionado, você irá para uma outra tela, onde obterá informações mais detalhadas sobre a energia gerada naquele período selecionado.
 
 <img src="./src/assets/doc/details.png" width="300" alt="" />
+
+OBS: Existem vários pontos de melhorias no código e visualmente, mas devido ao prazo apertado, não foi possível trabalhar nesses pontos.
 
 Feito com :technologist: by [Vitor_Santana](https://github.com/vitorSantanaDev)
 
