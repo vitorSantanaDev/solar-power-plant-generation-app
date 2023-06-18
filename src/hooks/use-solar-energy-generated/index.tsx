@@ -10,21 +10,23 @@ export function useSolarEnergyGenerated() {
 
 	function getAllData() {
 		(async () => {
-			SolarEnergyGeneratedInstance;
+			try {
+				const [hourly, daily, monthly, yearly] = await Promise.all([
+					SolarEnergyGeneratedInstance.getSolarEnergyGenerated('hourly'),
+					SolarEnergyGeneratedInstance.getSolarEnergyGenerated('daily'),
+					SolarEnergyGeneratedInstance.getSolarEnergyGenerated('monthly'),
+					SolarEnergyGeneratedInstance.getSolarEnergyGenerated('yearly'),
+				]);
 
-			const [hourly, daily, monthly, yearly] = await Promise.all([
-				SolarEnergyGeneratedInstance.getSolarEnergyGenerated('hourly'),
-				SolarEnergyGeneratedInstance.getSolarEnergyGenerated('daily'),
-				SolarEnergyGeneratedInstance.getSolarEnergyGenerated('monthly'),
-				SolarEnergyGeneratedInstance.getSolarEnergyGenerated('yearly'),
-			]);
-
-			setAllSolarEnergyGenerated({
-				daily: daily.data,
-				hourly: hourly.data,
-				yearly: yearly.data,
-				monthly: monthly.data,
-			});
+				setAllSolarEnergyGenerated({
+					daily: daily.data,
+					hourly: hourly.data,
+					yearly: yearly.data,
+					monthly: monthly.data,
+				});
+			} catch (err) {
+				console.log('err', { err });
+			}
 		})();
 	}
 

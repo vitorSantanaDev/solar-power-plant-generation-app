@@ -7,8 +7,12 @@ import { PeriodFilterTypeEnum } from '../../components/PeriodFilter/types';
 
 import { useSolarEnergyGenerated } from '../../hooks/use-solar-energy-generated';
 import { GetSolarEnergyGeneratedFilterType } from '../../services/SolarEnergyGenerated.service';
+import { useStackNavigation } from '../../utils/navigation-utils';
+import { Routes } from '../../routes/routes-names';
 
 export function Home() {
+	const navigation = useStackNavigation();
+
 	const [selectedPeriodFilter, setSelectedPeriodFilter] = React.useState<{
 		value: GetSolarEnergyGeneratedFilterType;
 	}>({ value: 'all' });
@@ -82,13 +86,15 @@ export function Home() {
 					0
 				),
 				onPress: () => {
-					console.log({ ...currentItem });
+					navigation.navigate(Routes.ENERGY_GENERATED_DETAILS, {
+						...currentItem,
+					});
 				},
 			});
 		}
 
 		setGeralBalanceOfEnergyGeneratedCards(newState);
-	}, [allSolarEnergyGenerated]);
+	}, [allSolarEnergyGenerated, navigation]);
 
 	const filters = React.useMemo(
 		() => [

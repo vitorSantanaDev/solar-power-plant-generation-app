@@ -1,3 +1,4 @@
 export enum Routes {
 	HOME = 'HOME',
+	ENERGY_GENERATED_DETAILS = 'ERGY_GENERATED_DETAILS',
 }
