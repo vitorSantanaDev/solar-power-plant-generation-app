@@ -1,8 +1,9 @@
 import * as React from 'react';
-import * as RN from 'react-native';
+
+import { AppStackNavigation } from './src/routes';
 
 function App(): JSX.Element {
-  return <RN.Text>Yellot App</RN.Text>;
+	return <AppStackNavigation />;
 }
 
 export default App;
